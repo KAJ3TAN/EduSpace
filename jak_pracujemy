@@ -1,0 +1,27 @@
+Jak pracujemy?
+
+Krok 1: Start zadania
+  W zakładce "Projects" (tablica Work Progress) znajdź swoje zadanie.
+  Przeciągnij je z kolumny "Zadania" do "W trakcie". 
+
+Krok 2: Nowa gałąź (Branch) 
+  Zaktualizuj lokalny projekt: git pull origin main.
+  Stwórz nową gałąź dla zadania: git checkout -b feature/nazwa-twojego-zadania. 
+
+Krok 3: Praca i Commity 
+  Pracuj nad kodem na swojej nowej gałęzi. 
+  Regularnie zapisuj postępy: git commit -m "Jasny opis co zrobiłeś". 
+
+Krok 4: Pull Request (PR) 
+  Gdy skończysz, wyślij swoją gałąź na serwer: git push origin feature/nazwa-twojego-zadania.
+  Na GitHubie stwórz "Pull Request" (PR) do gałęzi main.
+  W opisie PR wpisz Closes #numer_issue (np. Closes #5), aby połączyć je z zadaniem.
+  Przypisz Leadera Projektu jako "Reviewer". 
+
+Krok 5: Przegląd kodu (Review) 
+  Czekaj na sprawdzenie kodu przez Leadera. Jeśli będą potrzebne poprawki, zrób je na tej samej gałęzi i wyślij (PR zaktualizuje się sam).
+
+Krok 6: Zakończenie (Merge)
+    Po zatwierdzeniu (Approve), Lider Projektu łączy (merge) Twój kod z main.
+    Twoje zadanie automatycznie przeniesie się do "Done". Zanim zaczniesz kolejne zadanie, zaktualizuj projekt:
+
