@@ -19,7 +19,7 @@ const AwsApiService = {
         switch(endpoint) {
             case 'grades':
                 return [
-                    { id: 1, subject: 'Matematyka', grade: 5, weight: 3, date: '2023-10-12', desc: 'Sprawdzian - Funkcje' },
+                    { id: 1, subject: 'Cloud Computing', grade: 5, weight: 3, date: '2023-10-12', desc: 'Sprawdzian - Funkcje' },
                     { id: 2, subject: 'Język Polski', grade: 4, weight: 2, date: '2023-10-10', desc: 'Wypracowanie' },
                     { id: 3, subject: 'Fizyka', grade: 2, weight: 3, date: '2023-10-08', desc: 'Kartkówka - Dynamika' },
                     { id: 4, subject: 'Informatyka', grade: 6, weight: 1, date: '2023-10-05', desc: 'Projekt strony WWW' },
@@ -156,4 +156,5 @@ const router = {
 // Inicjalizacja: Załaduj Pulpit na start
 document.addEventListener('DOMContentLoaded', () => {
     router.loadPage('dashboard');
+
 });
