@@ -1,159 +1,72 @@
 :root {
-    /* Paleta kolorów - wysoki kontrast */
-    --primary-color: #2563EB; /* Niebieski - akcja */
-    --bg-color: #F3F4F6;      /* Jasne tło */
-    --sidebar-bg: #1F2937;    /* Ciemny panel boczny */
-    --text-main: #111827;     /* Prawie czarny tekst */
-    --text-light: #F9FAFB;    /* Biały tekst */
+    --primary-color: #3B82F6; 
+    --bg-color: #F8FAFC;
+    --sidebar-bg: #0F172A;
+    --text-main: #334155;
+    --text-light: #F1F5F9;
     --card-bg: #FFFFFF;
-    --border-color: #E5E7EB;
-    --focus-ring: #F59E0B;    /* Pomarańczowy dla focusa (dostępność) */
+    --border-color: #E2E8F0;
+    --focus-ring: #F59E0B;
     
-    --success: #10B981;
-    --danger: #EF4444;
+    --grade-pass: #DCFCE7; /* Jasna zieleń */
+    --grade-pass-text: #166534;
+    --grade-fail: #FEE2E2; /* Jasna czerwień */
+    --grade-fail-text: #991B1B;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.6;
-}
+.skip-link { position: absolute; top: -40px; left: 0; background: var(--primary-color); color: white; padding: 8px; z-index: 100; transition: top 0.3s; }
+.skip-link:focus { top: 0; }
 
-/* Skip link - widoczny tylko przy tabulacji */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary-color);
-    color: white;
-    padding: 8px;
-    z-index: 100;
-    transition: top 0.3s;
-}
-.skip-link:focus {
-    top: 0;
-}
-
-/* Layout */
-.app-container {
-    display: flex;
-    min-height: 100vh;
-}
+.app-container { display: flex; min-height: 100vh; }
 
 /* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: var(--sidebar-bg);
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-}
-
-.logo h2 { margin-bottom: 2rem; }
-
+.sidebar { width: 260px; background-color: var(--sidebar-bg); color: var(--text-light); display: flex; flex-direction: column; padding: 1.5rem; }
+.logo { margin-bottom: 2.5rem; }
 .nav-links { list-style: none; flex-grow: 1; }
-.nav-links li { margin-bottom: 0.5rem; }
+.nav-links li { margin-bottom: 0.8rem; }
+.nav-links button { width: 100%; text-align: left; background: none; border: none; color: #94A3B8; padding: 12px; cursor: pointer; font-size: 1rem; border-radius: 8px; transition: all 0.2s; }
+.nav-links button:hover, .nav-links button[aria-current="page"] { background-color: rgba(59, 130, 246, 0.1); color: #60A5FA; font-weight: 600; }
+button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
-.nav-links button {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    color: #9CA3AF;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 6px;
-    transition: all 0.2s;
-}
+/* Profil Studenta */
+.user-profile { border-top: 1px solid #1E293B; padding-top: 1rem; display: flex; align-items: center; gap: 10px; }
+.avatar-circle { width: 40px; height: 40px; background: #334155; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
+.user-info { display: flex; flex-direction: column; font-size: 0.85rem; }
+.album-id { color: #64748B; font-size: 0.75rem; }
 
-.nav-links button:hover, .nav-links button[aria-current="page"] {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 600;
-}
+/* Content */
+.content-area { flex-grow: 1; padding: 2rem; overflow-y: auto; }
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.status-indicator { font-size: 0.8rem; color: #10B981; display: flex; align-items: center; gap: 6px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background-color: #10B981; }
 
-/* Focus styles dla dostępności */
-button:focus-visible {
-    outline: 3px solid var(--focus-ring);
-    outline-offset: 2px;
-}
+/* Karty */
+.card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 1.5rem; border: 1px solid var(--border-color); }
 
-/* Main Content */
-.content-area {
-    flex-grow: 1;
-    padding: 2rem;
-    overflow-y: auto;
-}
+/* Tabela Ocen (Indeks) */
+.accessible-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+.accessible-table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--border-color); color: #64748B; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.accessible-table td { padding: 1rem; border-bottom: 1px solid var(--border-color); }
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
+.grade-badge { padding: 4px 10px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+.grade-pass { background-color: var(--grade-pass); color: var(--grade-pass-text); }
+.grade-fail { background-color: var(--grade-fail); color: var(--grade-fail-text); }
 
-.status-indicator {
-    font-size: 0.8rem;
-    color: var(--success);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--success);
-}
+/* Plan Zajęć - Lista */
+.lesson-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #F1F5F9; }
+.lesson-time { font-weight: 600; color: #64748B; width: 100px; font-size: 0.9rem; }
+.lesson-details { flex-grow: 1; }
+.lesson-name { font-weight: 600; display: block; }
+.lesson-meta { font-size: 0.85rem; color: #64748B; }
+.schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
-/* Karty i Tabele */
-.card {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 1.5rem;
-}
-
-/* Tabela dostępna */
-.accessible-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.accessible-table th, .accessible-table td {
-    text-align: left;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.accessible-table th {
-    background-color: #F9FAFB;
-    font-weight: 600;
-}
-
-/* Oceny - kolory */
-.grade-badge {
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-.grade-good { background-color: #D1FAE5; color: #065F46; }
-.grade-bad { background-color: #FEE2E2; color: #991B1B; }
-
-/* Plan zajęć - Grid */
-.schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+/* Responsywność */
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    .sidebar { width: 100%; padding: 1rem; }
+    .nav-links { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
+    .user-profile { display: none; }
 }
