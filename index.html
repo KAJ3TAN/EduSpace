@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edu Space - Twój Portal Edukacyjny</title>
+    <title>Edu Space - Portal Studenta</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -15,6 +15,7 @@
         <nav class="sidebar" aria-label="Główna nawigacja">
             <div class="logo">
                 <h2>Edu Space</h2>
+                <small style="color: #9CA3AF;">Ver. Akademicka</small>
             </div>
             <ul class="nav-links">
                 <li>
@@ -24,7 +25,7 @@
                 </li>
                 <li>
                     <button onclick="router.loadPage('grades')" id="nav-grades">
-                        Oceny
+                        Indeks / Oceny
                     </button>
                 </li>
                 <li>
@@ -33,22 +34,27 @@
                     </button>
                 </li>
             </ul>
+            
             <div class="user-profile">
-                <span>Jan Kowalski</span>
-                <small>Uczeń</small>
+                <div class="avatar-circle">JN</div>
+                <div class="user-info">
+                    <span class="user-name">Jan Nowak</span>
+                    <small>Informatyka, Sem. 3</small>
+                    <small class="album-id">Nr albumu: 42910</small>
+                </div>
             </div>
         </nav>
 
         <main id="main-content" class="content-area" tabindex="-1">
             <header class="top-bar">
                 <h1 id="page-title">Witaj w Edu Space</h1>
-                <div class="status-indicator" aria-label="Status połączenia">
-                    <span class="dot online"></span> AWS Connected
+                <div class="status-indicator" aria-label="Status systemu">
+                    <span class="dot online"></span> AWS Cloud Active
                 </div>
             </header>
             
             <div id="app-view" class="view-container">
-                <div class="loader" role="status">Ładowanie danych...</div>
+                <div class="loader" role="status">Ładowanie danych studenta...</div>
             </div>
         </main>
     </div>
